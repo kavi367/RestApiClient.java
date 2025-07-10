@@ -1,0 +1,45 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+
+public class RestApiClient {
+    public static void main(String[] args) {
+        try {
+            String name = "michael";
+            String apiUrl = "https://api.agify.io/?name=" + name;
+
+            // Use URI to validate and convert to URL
+            URI uri = new URI(apiUrl);
+            URL url = uri.toURL();
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(conn.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+
+                in.close();
+
+                System.out.println("Response from API:");
+                System.out.println(response.toString());
+            } else {
+                System.out.println("GET request failed. Code: " + responseCode);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
