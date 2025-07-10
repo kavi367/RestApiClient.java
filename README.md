@@ -19,6 +19,7 @@ The API I used was Agify.io, which predicts a person's age based on their name. 
 This task helped me understand how to use Java for web communication, how REST APIs work, and how to handle API responses in real time. It was a new and valuable learning experience for me. And I had used to clear my doubts by seeing java materials and some videos. So finally, tis task is very useful for me. 
 
 #output:
+<img width="1191" height="691" alt="Image" src="https://github.com/user-attachments/assets/53d9b29c-66a1-44fe-907b-781fdef67f94" />
 
 
 
